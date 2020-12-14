@@ -44,8 +44,7 @@ def addUser(userid):
         user.save()
 
     else:
-        print('取消关注')
-        # user=user[0]
+
         user.canceled = False
         user.last_update_time=datetime.now()
         user.save()
@@ -65,8 +64,6 @@ def cancelUser(userid):
         pass
 
     else:
-        print('取消关注')
-        # user=user[0]
         user.canceled = True
         user.last_update_time=datetime.now()
         user.save()
@@ -95,8 +92,7 @@ def Services(request):
         timestamp = request.POST.get('timestamp')
         nonce = request.POST.get('nonce')
         openid = request.POST.get('openid')
-        print(openid)
-        print(request.POST)
+
         body = request.body
         content = None
         print(body)
@@ -134,9 +130,9 @@ def Services(request):
 
         return HttpResponse(resp)
 
+# 异常处理
 
 def page_not_found(request, exception):
     print('IP')
     print(request.META['REMOTE_ADDR'])
-    # return JsonResponse({'error':404})
     return HttpResponse('404',status=404)
