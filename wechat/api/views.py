@@ -36,7 +36,6 @@ class Services(View):
         openid = request.POST.get('openid')
 
         body = request.body
-        content = None
         print(body)
         msg = body.decode('utf8')
         msg_prcs = MsgProcess(msg)
