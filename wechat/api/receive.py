@@ -21,7 +21,11 @@ class Msg(object):
         self.FromUserName = xmlData.find('FromUserName').text
         self.CreateTime = xmlData.find('CreateTime').text
         self.MsgType = xmlData.find('MsgType').text
-
+        self.MsgId=None
+        self.event=None
+        self.Content=None
+        self.PicUrl=None
+        self.event_key=None
 
 class TextMsg(Msg):
     def __init__(self, xmlData):
@@ -42,6 +46,4 @@ class EventMsg(Msg):
         Msg.__init__(self, xmlData)
         self.event = xmlData.find('Event').text
         self.event_key = xmlData.find('EventKey').text
-
-
 
